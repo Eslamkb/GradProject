@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Upload CSV and Train Model</title>
+    <!-- Include the full version of jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Bootstrap CSS for styling (optional) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body class="uploadCsv">
+    {% extends "header.html" %}
+
+    {% block content %}
+
+    <div class="container">
+        <h2 style="font-weight: 300; color: white;">Upload CSV and Train Model</h2>
+
+        <form id="uploadForm" class="uploadForm" action="/uploadCsv" method="post" enctype="multipart/form-data">
+
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="dataset" name="dataset" accept=".csv" required>
+                    <label class="custom-file-label" for="dataset">Choose file</label>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="3btn" style="display: flex; justify-content: space-between;">
+            <div class="2btn">
+                <button id="previewButton" class="btn btn-secondary">Preview CSV</button>
+                <button type="submit" class="btn btn-primary" form="uploadForm" id="upld_btn">Upload and Train</button>
+            </div>
+            <form action="/show_classification_report">
+                <button type="submit" class="btn btn-info d-none" id="report_btn">Classification Report</button>
+            </form>
+        </div>
+
+
+        <div class="progress" style="display: none;">
+            <div class="progress-bar" role="progressbar" style="width: 0%;" id="progressBar">
+                0%
+            </div>
+        </div>
+
+    </div>
+
+    <div id="csvPreview" class="scrollable-table" style="display: none;">
+        <!-- Display the CSV content as a table here -->
+    </div>
+
+    {% endblock %}
+
+
+    {% block scripts %}
+    {{ super() }}
+
+    <script>
+        $(document).ready(function () {
+            $('#uploadForm').submit(function (event) {
+                event.preventDefault(); // Prevent the default form submission
+                var formData = new FormData($(this)[0]);
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: 'POST',
+                    data: formData,
+                    async: true,
+                    beforeSend: function () {
+                        $('.progress').show();
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        checkProgress();
+                    },
+                    error: function (xhr) {
+                        var errorMessage;
+                        try {
+                            // extract the error message
+                            errorMessage = xhr.responseJSON.error;
+                        } catch (e) {
+                            errorMessage = xhr.responseText;
+                        }
+
+                        var alert = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
+                            errorMessage +
+                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">×</span>' +
+                            '</button>' +
+                            '</div>');
+
+                        $('.uploadForm').prepend(alert);
+
+                        $('.progress').hide();
+
+                        setTimeout(function () {
+                            $('.alert').alert('close');
+                        }, 5000);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
+
+            function checkProgress() {
+                var interval = setInterval(function () {
+                    $.get('/progress', function (data) {
+                        var progressValue = data.progress;
+                        $('#progressBar').css('width', progressValue + '%').text(progressValue + '%');
+                        if (progressValue >= 100) {
+                            clearInterval(interval);
+                            $('.progress').hide();
+
+                            var alert = $('<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+                                'Training and testing completed successfully!' +
+                                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                                '<span aria-hidden="true">×</span>' +
+                                '</button>' +
+                                '</div>');
+
+                            $('.uploadForm').prepend(alert);
+                        }
+                    });
+                }, 1000);
+            }
+        });
+
+        $(document).ready(function () {
+            // Update the label with the selected file name
+            $('.custom-file-input').on('change', function () {
+                var fileName = $(this).val().split('\\').pop();
+                $(this).siblings('.custom-file-label').addClass("selected").html(fileName);
+            });
+
+            // Show/hide the CSV preview
+            $('#previewButton').click(function () {
+                var fileInput = $('#dataset')[0];
+                if (fileInput.files.length > 0) {
+                    var file = fileInput.files[0];
+                    if (file.type === "text/csv" || file.name.endsWith('.csv')) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            var csvContent = e.target.result;
+                            displayCsvAsTable(csvContent);
+                        };
+                        reader.readAsText(file);
+                    } else {
+                        var alert = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
+                            'Please select a CSV file.' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">×</span>' +
+                            '</button>' +
+                            '</div>');
+                        $('.uploadForm').prepend(alert);
+
+                        setTimeout(function () {
+                            $('.alert').alert('close');
+                        }, 5000);
+                    }
+                }
+            });
+
+
+            function displayCsvAsTable(csvContent) {
+                var rows = csvContent.split('\n').slice(0, 500);
+                var tableHtml = '<table class="content-table">';
+
+                if (rows.length > 0) {
+                    var headerColumns = rows[0].split(',');
+                    tableHtml += '<thead><tr>';
+                    for (var j = 0; j < headerColumns.length; j++) {
+                        tableHtml += '<th>' + headerColumns[j] + '</th>';
+                    }
+                    tableHtml += '</tr></thead>';
+                }
+
+                tableHtml += '<tbody>';
+
+                for (var i = 1; i < rows.length; i++) {
+                    var columns = rows[i].split(',');
+                    tableHtml += '<tr>';
+                    for (var j = 0; j < columns.length; j++) {
+                        tableHtml += '<td>' + columns[j] + '</td>';
+                    }
+                    tableHtml += '</tr>';
+                }
+
+                tableHtml += '</tbody></table>';
+
+                $('#csvPreview').html(tableHtml).show();
+            }
+
+        });
+
+        upld_btn.addEventListener("click", function () {
+
+            report_btn.classList.remove("d-none");
+
+        })
+
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    {% endblock %}
+
+</body>
+
+</html>

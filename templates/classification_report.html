@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Report</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+        .content {
+            margin-top: 80px;
+        }
+
+        .table_wrapper {
+            max-height: 800px;
+            width: 700px;
+            margin: 12px auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        }
+
+        .table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 700px;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: scroll;
+        }
+
+        .table::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .table thead {
+            position: sticky;
+            top: 0;
+            background-color: orange;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .table thead tr {
+            background-color: orange;
+            color: #fff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px 15px;
+        }
+
+        .table tbody tr {
+            color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table tr {
+            scroll-snap-align: start;
+        }
+
+        .table tbody tr:nth-of-type(even) {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .table thead tr:last-of-type {
+            border-bottom: 2px solid orange;
+        }
+    </style>
+</head>
+
+<body class="report">
+    {% extends "header.html" %}
+
+    {% block content %}
+    <div class="content">
+        <h2 style="color: white; text-align: center;">Classification
+            Report</h2>
+
+        <div class="table_wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1-Score</th>
+                        <th>Support</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for line in report.split('\n') %}
+                    {% if loop.index > 1 and line.strip() %}
+                    <tr>
+                        {% for value in line.split() %}
+                        <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>

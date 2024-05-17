@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="{{url_for('index')}}">Network Intrusion Detection</a></div>
+            <ul class="links">
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                {% if username %}
+                <li><a href="{{url_for('select_dataset')}}">Select Dataset</a></li>
+                <li><a href="{{url_for('uploadCsv')}}">Upload Dataset</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+            {% if username %}
+            <a href="{{url_for('logout')}}" class="action_btn">Logout</a>
+            {% else %}
+            <a href="{{ url_for('login')}}" class="action_btn">Login</a>
+            {% endif %}
+            <div class="toggle_btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            {% if username %}
+            <li><a href="{{url_for('select_dataset')}}">Select Dataset</a></li>
+            <li><a href="{{url_for('uploadCsv')}}">Upload File</a></li>
+            {% endif %}
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            {% if username %}
+            <a href="{{url_for('logout')}}" class="action_btn">Logout</a>
+            {% else %}
+            <a href="{{ url_for('login')}}" class="action_btn">Login</a>
+            {% endif %}
+        </div>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block scripts %}
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+                ? 'fa-solid fa-xmark'
+                : 'fa-solid fa-bars'
+        }
+    </script>
+
+    {% endblock %}
+</body>
+
+</html>

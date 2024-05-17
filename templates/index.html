@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Home Page</title>
+</head>
+
+<body class="home">
+    {% extends "header.html" %}
+
+    {% block content %}
+
+    <main>
+        <section id="hero">
+            {% if username %}
+            <h1>Welcome {{username}}</h1>
+            {% else %}
+            <h1>Welcome</h1>
+            {% endif %}
+            <p>Our website is dedicated to helping you analyze and test datasets to determine whether network packets
+                are malicious or not. We focus on two main datasets: the KDD Cup '99 dataset and the UNSW-NB15 dataset,
+                both widely used in cybersecurity research.</p>
+        </section>
+    </main>
+
+    {% endblock %}
+
+</body>
+
+</html>
