@@ -1,0 +1,1055 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../img/DIS1.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.login .wrapper {
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.login .wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.login .wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.login .input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.login .input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.login .wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.login .wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.login .register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login .register-link p a:hover {
+    text-decoration: underline;
+}
+
+@media(max-width: 576px) {
+    .login .wrapper {
+        margin: 35px;
+    }
+}
+
+/* ---------------------------------------------------------------------- */
+
+.home,
+.upload_dataset,
+.select_dataset,
+.report,
+.uploadCsv,
+.prediction,
+.about,
+.contact,
+.graph {
+    height: 100vh;
+    background-color: #000;
+    background-image: url(../img/DIS1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.home li,
+.upload_dataset li,
+.select_dataset li,
+.report li,
+.uploadCsv li,
+.prediction li,
+.about li,
+.contact li,
+.graph li {
+    list-style: none;
+}
+
+.home a,
+.upload_dataset a,
+.select_dataset a,
+.report a,
+.uploadCsv a,
+.prediction a,
+.about a,
+.contact a,
+.graph a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.home .navbar a:hover,
+.upload_dataset .navbar a:hover,
+.select_dataset .navbar a:hover,
+.report .navbar a:hover,
+.uploadCsv .navbar a:hover,
+.prediction .navbar a:hover,
+.about .navbar a:hover,
+.contact .navbar a:hover,
+.graph .navbar a:hover {
+    color: orange;
+}
+
+.home .username,
+.upload_dataset .username,
+.select_dataset .username,
+.report .username,
+.uploadCsv .username,
+.prediction .username,
+.about .username,
+.contact .username,
+.graph .username {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* HEADER */
+.home header,
+.upload_dataset header,
+.select_dataset header,
+.report header,
+.uploadCsv header,
+.prediction header,
+.about header,
+.contact header,
+.graph header {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.home .navbar,
+.upload_dataset .navbar,
+.select_dataset .navbar,
+.report .navbar,
+.uploadCsv .navbar,
+.prediction .navbar,
+.about .navbar,
+.contact .navbar,
+.graph .navbar {
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home .navbar .logo a,
+.upload_dataset .navbar .logo a,
+.select_dataset .navbar .logo a,
+.report .navbar .logo a,
+.uploadCsv .navbar .logo a,
+.prediction .navbar .logo a,
+.about .navbar .logo a,
+.contact .navbar .logo a,
+.graph .navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.home .navbar .links,
+.upload_dataset .navbar .links,
+.select_dataset .navbar .links,
+.report .navbar .links,
+.uploadCsv .navbar .links,
+.prediction .navbar .links,
+.about .navbar .links,
+.contact .navbar .links,
+.graph .navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.home .navbar .toggle_btn,
+.upload_dataset .navbar .toggle_btn,
+.select_dataset .navbar .toggle_btn,
+.report .navbar .toggle_btn,
+.uploadCsv .navbar .toggle_btn,
+.prediction .navbar .toggle_btn,
+.about .navbar .toggle_btn,
+.contact .navbar .toggle_btn,
+.graph .navbar .toggle_btn {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.home .action_btn,
+.upload_dataset .action_btn,
+.select_dataset .action_btn,
+.report .action_btn,
+.uploadCsv .action_btn,
+.prediction .action_btn,
+.about .action_btn,
+.contact .action_btn,
+.graph .action_btn {
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.home .action_btn:hover,
+.upload_dataset .action_btn:hover,
+.select_dataset .action_btn:hover,
+.report .action_btn:hover,
+.uploadCsv .action_btn:hover,
+.prediction .action_btn:hover,
+.about .action_btn:hover,
+.contact .action_btn:hover,
+.graph .action_btn:active {
+    scale: 1.05;
+    color: #fff !important;
+}
+
+.home .action_btn:active,
+.upload_dataset .action_btn:active,
+.select_dataset .action_btn:active,
+.report .action_btn:active,
+.uploadCsv .action_btn:active,
+.prediction .action_btn:active,
+.about .action_btn:active,
+.contact .action_btn:active,
+.graph .action_btn:active {
+    scale: 0.95;
+}
+
+/* DROPDOWN MENU */
+.home .dropdown_menu,
+.upload_dataset .dropdown_menu,
+.select_dataset .dropdown_menu,
+.report .dropdown_menu,
+.uploadCsv .dropdown_menu,
+.prediction .dropdown_menu,
+.about .dropdown_menu,
+.contact .dropdown_menu,
+.graph .dropdown_menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100;
+}
+
+.home .dropdown_menu.open,
+.upload_dataset .dropdown_menu.open,
+.select_dataset .dropdown_menu.open,
+.report .dropdown_menu.open,
+.uploadCsv .dropdown_menu.open,
+.prediction .dropdown_menu.open,
+.about .dropdown_menu.open,
+.contact .dropdown_menu.open,
+.graph .dropdown_menu.open {
+    height: 190px;
+}
+
+.home .dropdown_menu li,
+.upload_dataset .dropdown_menu li,
+.select_dataset .dropdown_menu li,
+.report .dropdown_menu li,
+.uploadCsv .dropdown_menu li,
+.prediction .dropdown_menu li,
+.about .dropdown_menu li,
+.contact .dropdown_menu li,
+.graph .dropdown_menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home .dropdown_menu .action_btn,
+.upload_dataset .dropdown_menu .action_btn,
+.select_dataset .dropdown_menu .action_btn,
+.report .dropdown_menu .action_btn,
+.uploadCsv .dropdown_menu .action_btn,
+.prediction .dropdown_menu .action_btn,
+.about .dropdown_menu .action_btn,
+.contact .dropdown_menu .action_btn,
+.graph .dropdown_menu .action_btn {
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* HERO */
+.home section#hero {
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.home #hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.home #hero p {
+    padding: 20px;
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width: 992px) {
+
+    .home .navbar .links,
+    .home .navbar .action_btn,
+    .upload_dataset .navbar .links,
+    .upload_dataset .navbar .action_btn,
+    .select_dataset .navbar .links,
+    .select_dataset .navbar .action_btn,
+    .report .navbar .links,
+    .report .navbar .action_btn,
+    .uploadCsv .navbar .links,
+    .uploadCsv .navbar .action_btn,
+    .prediction .navbar .links,
+    .prediction .navbar .action_btn,
+    .about .navbar .links,
+    .about .navbar .action_btn,
+    .contact .navbar .links,
+    .contact .navbar .action_btn,
+    .graph .navbar .links,
+    .graph .navbar .action_btn {
+        display: none;
+    }
+
+    .home .navbar .toggle_btn,
+    .upload_dataset .navbar .toggle_btn,
+    .select_dataset .navbar .toggle_btn,
+    .report .navbar .toggle_btn,
+    .uploadCsv .navbar .toggle_btn,
+    .prediction .navbar .toggle_btn,
+    .about .navbar .toggle_btn,
+    .contact .navbar .toggle_btn,
+    .graph .navbar .toggle_btn {
+        display: block;
+    }
+
+    .home .dropdown_menu,
+    .upload_dataset .dropdown_menu,
+    .select_dataset .dropdown_menu,
+    .report .dropdown_menu,
+    .uploadCsv .dropdown_menu,
+    .prediction .dropdown_menu,
+    .about .dropdown_menu,
+    .contact .dropdown_menu,
+    .graph .dropdown_menu {
+        display: block;
+    }
+}
+
+@media(max-width: 576px) {
+
+    .home .dropdown_menu,
+    .upload_dataset .dropdown_menu,
+    .select_dataset .dropdown_menu,
+    .report .dropdown_menu,
+    .uploadCsv .dropdown_menu,
+    .prediction .dropdown_menu,
+    .about .dropdown_menu,
+    .contact .dropdown_menu,
+    .graph .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
+}
+
+/* ---------------------------------------------------------------------- */
+
+.upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #6990f2;
+}
+
+.upload .wrapper {
+    width: 430px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.upload .wrapper header {
+    color: #6990f2;
+    font-size: 27px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.upload .wrapper form {
+    height: 167px;
+    display: flex;
+    margin: 30px 0;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 2px dashed #6990f2;
+}
+
+.upload form :where(i, p) {
+    color: #6990f2;
+}
+
+.upload form i {
+    font-size: 50px;
+}
+
+.upload form p {
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.upload section .row {
+    background: #e9f0ff;
+    margin-bottom: 10px;
+    list-style: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.upload section .row i {
+    font-size: 30px;
+    color: #6990f2;
+}
+
+.upload section .details span {
+    font-size: 14px;
+}
+
+.upload .progress-area .row .content {
+    width: 100%;
+    margin-left: 15px;
+}
+
+.upload .progress-area .details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+    justify-content: space-between;
+}
+
+.upload .progress-area .progress-bar {
+    height: 6px;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4px;
+    border-radius: 30px;
+}
+
+.upload .progress-bar .progress {
+    height: 100%;
+    width: 0%;
+    background: #6990f2;
+    border-radius: inherit;
+}
+
+.upload .uploaded-area {
+    max-height: 230px;
+    overflow-y: scroll;
+}
+
+.upload .uploaded-area.onprogress {
+    max-height: 150px;
+}
+
+.upload .uploaded-area::-webkit-scrollbar {
+    width: 0px;
+}
+
+.upload .uploaded-area .row .content {
+    display: flex;
+    align-items: center;
+}
+
+.upload .uploaded-area .row .details {
+    display: flex;
+    margin-left: 15px;
+    flex-direction: column;
+}
+
+.upload .uploaded-area .details .size {
+    font-size: 11px;
+    color: #404040;
+}
+
+.upload .uploaded-area .fa-check {
+    color: #6990f2;
+    font-size: 16px;
+}
+
+.upload .submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload .submit_btn {
+    display: inline-flex;
+    height: 50px;
+    padding: 0;
+    background: #6990f2;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.upload .submit_btn:hover {
+    background: #5d85eb;
+}
+
+.upload .submit_btn:active {
+    background: #517ae2;
+}
+
+.upload .submit_txt,
+.upload .submit_icon {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 24px;
+    color: #fff;
+    height: 100%;
+}
+
+.upload .submit_icon {
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, .1);
+}
+
+
+/* ---------------------------------------------------------------------- */
+
+.upload_dataset .scrollable-table {
+    height: 700px;
+    width: 90%;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+    margin: 12px auto;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+}
+
+.upload_dataset .scrollable-table::-webkit-scrollbar {
+    width: 0;
+}
+
+.upload_dataset .scrollable-table>.content-table {
+    width: 100%;
+}
+
+.upload_dataset .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: scroll;
+}
+
+.upload_dataset .content-table::-webkit-scrollbar {
+    width: 0;
+}
+
+.upload_dataset .content-table thead {
+    position: sticky;
+    top: 0;
+}
+
+.upload_dataset .content-table thead tr {
+    background-color: orange;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.upload_dataset .content-table th,
+.upload_dataset .content-table td {
+    padding: 12px 15px;
+}
+
+.upload_dataset .content-table tbody tr {
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.upload_dataset .content-table tr {
+    scroll-snap-align: start;
+}
+
+.upload_dataset .content-table tbody tr:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.upload_dataset .content-table thead tr:last-of-type {
+    border-bottom: 2px solid orange;
+}
+
+
+/* ---------------------------------------------------------------------- */
+
+.uploadCsv .container {
+    margin: 30px auto;
+}
+
+.uploadCsv .scrollable-table {
+    height: 700px;
+    width: 90%;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+    margin: 12px auto;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+}
+
+.uploadCsv .scrollable-table::-webkit-scrollbar {
+    width: 0;
+}
+
+.uploadCsv .scrollable-table>.content-table {
+    width: 100%;
+}
+
+.uploadCsv .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: scroll;
+}
+
+.uploadCsv .content-table::-webkit-scrollbar {
+    width: 0;
+}
+
+.uploadCsv .content-table thead {
+    position: sticky;
+    top: 0;
+}
+
+.uploadCsv .content-table thead tr {
+    background-color: orange;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.uploadCsv .content-table th,
+.uploadCsv .content-table td {
+    padding: 12px 15px;
+}
+
+.uploadCsv .content-table tbody tr {
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.uploadCsv .content-table tr {
+    scroll-snap-align: start;
+}
+
+.uploadCsv .content-table tbody tr:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.uploadCsv .content-table thead tr:last-of-type {
+    border-bottom: 2px solid orange;
+}
+
+.uploadCsv .progress {
+    margin-top: 20px;
+}
+
+
+/* ---------------------------------------------------------------------- */
+
+.prediction .main_content {
+    display: flex;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.prediction .container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 28px;
+    margin: 0 28px;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.prediction .form-title {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 6px;
+    color: white;
+    text-shadow: 2px, 2px, 2px black;
+    /* border-bottom: solid 1px white; */
+}
+
+.prediction .main-user-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.prediction .user-input-box:nth-child(2n) {
+    justify-content: end;
+}
+
+.prediction .user-input-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+.prediction .user-input-box label {
+    width: 95%;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 5px 0;
+}
+
+.prediction .user-input-box input,
+.prediction .user-input-box select {
+    height: 40px;
+    width: 95%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid gray;
+    padding: 0 10px;
+}
+
+.prediction .form-submit-btn input {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    /* color: rgb(209, 209, 209); */
+    color: white;
+    background: orange;
+    cursor: pointer;
+}
+
+.prediction .form-submit-btn input:hover {
+    background: rgb(255, 153, 0);
+    color: white;
+}
+
+.prediction .prediction_lbl {
+    display: flex;
+    margin-top: 14px;
+    color: white;
+    justify-content: center;
+}
+
+.prediction .prediction_lbl span {
+    color: orange;
+}
+
+@media(max-width: 600px) {
+    .prediction .container {
+        min-width: 280px;
+    }
+
+    .prediction .user-input-box {
+        margin-bottom: 12px;
+        width: 100%;
+    }
+
+    .prediction .user-input-box:nth-child(2n) {
+        justify-content: space-between;
+    }
+
+    .prediction .main-user-info {
+        max-height: 380px;
+        overflow-y: auto;
+    }
+
+    .prediction .main-user-info::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+/* ---------------------------------------------------------------------- */
+
+/* Top-level menu */
+.select_dataset .top-level-menu {
+    display: flex;
+    justify-content: center;
+    width: 380px;
+    margin: 150px auto;
+    position: relative;
+    top: 15%;
+}
+
+.select_dataset .top-level-menu .slct {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    background: #fff;
+    color: #333;
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.select_dataset .top-level-menu .slct:hover {
+    background-color: #dbdbdb;
+    transform: translateY(-2px);
+}
+
+.select_dataset .top-level-menu .icon-arrow {
+    transition: transform 0.5s ease-in-out;
+}
+
+.select_dataset .top-level-menu:hover .icon-arrow {
+    transform: rotate(180deg);
+}
+
+/* Second-level menu */
+.select_dataset .second-level-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 380px;
+}
+
+.select_dataset .top-level-menu .slct:hover .second-level-menu .slct_dataset {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.select_dataset .top-level-menu .slct:not(:hover) .second-level-menu .slct_dataset {
+    transition-delay: 0.5s;
+}
+
+.select_dataset .second-level-menu .slct_dataset {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #fff;
+    color: #333;
+    margin: 5px 0;
+    opacity: 0;
+    transform: scale(0) translateY(-65px);
+    transition: opacity 0.8s ease-in-out, transform 0.5s ease-in-out;
+    transition-delay: calc(.1s * var(--i));
+}
+
+.select_dataset .second-level-menu .slct_dataset:nth-child(1) {
+    margin-top: 10px;
+}
+
+.select_dataset .second-level-menu .slct_dataset .icon2-arrow {
+    transition: transform 0.5s ease-in-out;
+}
+
+.select_dataset .second-level-menu .slct_dataset:hover .icon2-arrow {
+    transform: rotate(180deg);
+}
+
+.select_dataset .second-level-menu .slct_dataset:hover {
+    background: #dbdbdb;
+}
+
+.select_dataset .second-level-menu .slct_dataset:nth-child(1) {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.select_dataset .second-level-menu .slct_dataset:nth-child(2) {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Third-level menu (nested within second-level) */
+.select_dataset .third-level-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    width: 220px;
+    transform: scale(0) translateY(-10px);
+    transition: opacity 0.8s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.select_dataset .second-level-menu .slct_dataset:hover .third-level-menu .slct_model {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+}
+
+.select_dataset .second-level-menu .slct_dataset:not(:hover) .third-level-menu .slct_model {
+    transition-delay: 0.3s;
+}
+
+.select_dataset .third-level-menu .slct_model {
+    padding: 10px 20px;
+    margin-left: 5px;
+    background: #fff;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+    transform: scale(0) translateX(-150px);
+    transition: opacity 0.8s ease-in-out, transform 0.5s ease-in-out;
+    transition-delay: calc(.1s * var(--i));
+}
+
+.select_dataset .slct_model a {
+    display: block;
+    color: #333;
+}
+
+.select_dataset .third-level-menu .slct_model:hover {
+    background-color: #dbdbdb;
+}
+
+.select_dataset .third-level-menu .slct_model:nth-child(1) {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.select_dataset .third-level-menu .slct_model:nth-child(2) {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.select_dataset .second-level-menu .slct_dataset:hover .third-level-menu {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.select_dataset .slct_dataset span .content,
+.select_dataset .slct_model .content {
+    display: none;
+    margin-top: 10px;
+    color: #535353;
+}
+
+.select_dataset .slct_dataset span .content {
+    font-size: 0.8em;
+}
+
+.select_dataset .info {
+    margin-left: 10px;
+    color: dodgerblue;
+}
+    
