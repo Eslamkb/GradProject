@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Dataset</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body class="select_dataset">
+    {% extends "header.html" %}
+
+    {% block content %}
+
+    <ul class="top-level-menu">
+        <li class="slct">
+            <span id="text">Select Dataset</span>
+            <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon>
+
+            <ul class="second-level-menu">
+                <li class="slct_dataset" style="--i:2">
+
+                    <span>
+                        <ion-icon name="layers" class="icon"></ion-icon>
+                        <span class="option-text">KDD CUP 99</span>
+                        <ion-icon name="information-circle-outline" class="info"></ion-icon>
+                        <div class="content">
+                            <h5>What is KDDCUP99</h5>
+                            <p>The KDD Cup 1999 dataset is an early benchmark for intrusion detection systems. It covers
+                                various network attacks like DoS and U2R, with multiple attack formats represented.
+                                Features include protocol types, IP addresses, and attack labels. Split into training
+                                and testing files, it's a valuable resource for evaluating intrusion detection
+                                algorithms.</p>
+                        </div>
+                    </span>
+
+                    <ion-icon name="chevron-forward-outline" class="icon2-arrow"></ion-icon>
+
+                    <ul class="third-level-menu">
+                        <li class="slct_model" style="--i:2">
+                            <a href="{{url_for('kddPredictionDNN')}}">DNN
+                                <ion-icon name="information-circle-outline" class="info"
+                                    style="float: right;"></ion-icon>
+                                <div class="content">
+                                    <h5>Deep Neural Network</h5>
+                                    <p>Deep neural networks (DNNs) are a class of machine learning models inspired by
+                                        the structure and function of the human brain, consisting of multiple layers of
+                                        interconnected neurons.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="slct_model" style="--i:1">
+                            <a href="{{url_for('kddPredictionDT')}}">DT
+                                <ion-icon name="information-circle-outline" class="info"
+                                    style="float: right;"></ion-icon>
+                                <div class="content">
+                                    <h5>Decision Tree</h5>
+                                    <p>A decision tree is a simple supervised ML algorithm that constructs a tree-like
+                                        structure based on input features.</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li class="slct_dataset" style="--i:1">
+
+                    <span>
+                        <ion-icon name="bug" class="icon"></ion-icon>
+                        <span class="option-text">UNSW NB 15</span>
+                        <ion-icon name="information-circle-outline" class="info"></ion-icon>
+                        <div class="content">
+                            <h5>What is UNSWNB15</h5>
+                            <p>The UNSW-NB15 dataset offers a wide range of network traffic scenarios, including 9 types
+                                of attacks like Fuzzers and DoS, alongside benign packets. It contains 49 features such
+                                as IP addresses, timestamps, and protocol types, extracted using tools like Argus and
+                                Bro-IDS. The dataset has two versions, one completely unbalanced with 2,540,044 records.
+                            </p>
+                        </div>
+                    </span>
+
+                    <ion-icon name="chevron-forward-outline" class="icon2-arrow"></ion-icon>
+
+                    <ul class="third-level-menu">
+                        <!-- <li class="slct_model" style="--i:2">
+                            <a href="#">CNN
+                                <ion-icon name="information-circle-outline" class="info"
+                                    style="float: right;"></ion-icon>
+                                <div class="content">
+                                    <h5>Convolutional Neural Network</h5>
+                                    <p>CNNs are a powerful type of deep learning architecture inspired by the structure of the human visual cortex.</p>
+                                </div>
+                            </a>
+                        </li> -->
+                        <li class="slct_model" style="--i:1">
+                            <a href="{{url_for('unswPredictionMLP')}}">MLP
+                                <ion-icon name="information-circle-outline" class="info"
+                                    style="float: right;"></ion-icon>
+                                <div class="content">
+                                    <h5>Multi-Layer Perceptron</h5>
+                                    <p>MLP classifiers are a type of artificial neural network inspired by the function
+                                        and structure of the human brain.</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+        </li>
+    </ul>
+    {% endblock %}
+
+    {% block scripts %}
+    {{ super() }}
+
+    <script>
+
+        const infoIcons = document.querySelectorAll('.info');
+        const contentDivs = document.querySelectorAll('.content');
+
+        infoIcons.forEach((icon, index) => {
+            icon.addEventListener('mouseenter', () => {
+                contentDivs[index].style.display = 'block';
+            });
+
+            icon.addEventListener('mouseleave', () => {
+                contentDivs[index].style.display = 'none';
+            });
+        });
+
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    {% endblock %}
+</body>
+
+</html>
