@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style_about.css">
+    <style>
+        body.about {
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        p {
+            background-color: transparent;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+    </style>
+
+</head>
+
+<body class="about">
+    {% extends "header.html" %}
+
+    {% block content %}
+
+    <h1>About Us</h1>
+    <p>Welcome to our DL-NAD website. We are a dedicated team of four students enrolled at Misr International
+        University, specializing in Computer Science with a profound focus on cybersecurity. Under the expert guidance
+        of Dr. Sahar Abdelrahman and Eng. Mohamed Khaled, esteemed leaders in the field, we embarked on a transformative
+        journey to develop a sophisticated Intrusion Detection System (IDS) as part of our graduation project. We seek
+        to encourage digital landscapes against the ever-evolving threats of cyber attacks. At the core of our solution
+        lies the intricate integration of advanced Deep Learning models, meticulously engineered to discern and classify
+        network packets with unparalleled precision. Our dedication to research is exemplified by our utilization of
+        industry-renowned datasets, including UNSW-NB15 and KDD-CUP. Moreover, we are proud to announce that our project
+        is generously sponsored by Orange Business, a global leader in digital solutions. Through relentless exploration
+        and unwavering determination, we aim to not only elevate the discourse surrounding cybersecurity but also to
+        tangibly contribute to its advancement. We invite you to join us on this transformative quest towards a safer
+        and more secure digital ecosystem.</p>
+
+    {% endblock %}
+
+</body>
+
+</html>
